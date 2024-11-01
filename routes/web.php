@@ -1,53 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\CarController;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
-
-/* 
-
-Route::get('/about', function (){
-    return view('about');
 });
 
-// route require parameter
-Route::get('/products/{id}', function(string $id){
-    return "mullah $id";
-});
-
-// route with optional parameter 
-Route::get('/product/{category?}', function($category=null){
-    return "this is optional parameter $category";
-});
- */
-
-/*
-
- Route::fallback(function(){
-    return redirect()->route('home');
- });
-
-//  parameter in name route
-
-Route::get('/{lang}/product/{id}', function(){
-    return "this is mullah zain aly";
-
-})->name('name.route');
+// Route::get('/car', [CarController::class, 'index']);
 
 
-Route::get('/accessroute', function(){
-    $nameRoutePara = route('name.route', ['zaid', 'aly']);
-    // dd($nameRoutePara);
-    return "zaid";
-});
-
-Route::get('/user/profile', function(){})->name('profile');
-
-*/
+//controller grouping 
+// Route::controller(CarController::class)->group(function(){
+//     Route::get('/car', 'index');
+//     Route::get('/my-car', 'my-car');
+// });
 
 
-Route::get('/{zaid}/{srname}', function(int $zaid,int $srname){
-    return ( $zaid+$srname);
-})->whereNumber(['zaid', 'srname']);
+// Route::get('/car', CarController::class);
