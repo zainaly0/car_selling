@@ -23,6 +23,8 @@ Route::get('/product/{category?}', function($category=null){
 });
  */
 
+/*
+
  Route::fallback(function(){
     return redirect()->route('home');
  });
@@ -40,3 +42,12 @@ Route::get('/accessroute', function(){
     // dd($nameRoutePara);
     return "zaid";
 });
+
+Route::get('/user/profile', function(){})->name('profile');
+
+*/
+
+
+Route::get('/{zaid}/{srname}', function(int $zaid,int $srname){
+    return ( $zaid+$srname);
+})->whereNumber(['zaid', 'srname']);
